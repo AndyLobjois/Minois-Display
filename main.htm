@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="r1">
+<p id="r2">
+<p id="r3">
+
+<script>
+const vars = new URLSearchParams(window.location.search);
+document.getElementById("r1").innerHTML = vars.get("var0");
+document.getElementById("r2").innerHTML = vars.get("var3") + " + " + vars.get("var1");
+document.getElementById("r3").innerHTML = vars.get("var2");
+</script>
+
+<style>
+p {
+	text-align: center;
+	font-family: Verdana; 
+	font-size: 300%;
+	font-style: bold;
+	color: grey; 
+ }
+</style>
+
+</body>
+</html>
