@@ -1,26 +1,82 @@
 <!DOCTYPE html>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
 <html>
 <body>
 
-<p id="r1">
-<p id="r2">
-<p id="r3">
+<div class="table_component" role="region" tabindex="0">
+<table>
+    <tbody>
+        <tr>
+            <td></td>
+            <td><p class="label" id="e"></td>
+            <td></td>
+			<td></td>
+			<td></td>
+            <td><p class="label" id="a"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><p class="label" id="h"></td>
+            <td></td>
+            <td><p class="label" id="f"></td>
+			<td></td>
+			<td><p class="label" id="d"></td>
+            <td></td>
+            <td><p class="label" id="b"></td>
+        </tr>
+		<tr>
+            <td></td>
+            <td><p class="label" id="g"></td>
+			<td></td>
+            <td></td>
+			<td></td>
+            <td><p class="label" id="c"></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+</div>
 
 <script>
 const vars = new URLSearchParams(window.location.search);
-document.getElementById("r1").innerHTML = vars.get("var0");
-document.getElementById("r2").innerHTML = vars.get("var3") + " + " + vars.get("var1");
-document.getElementById("r3").innerHTML = vars.get("var2");
+document.getElementById("a").innerHTML = vars.get("a");
+document.getElementById("b").innerHTML = vars.get("b");
+document.getElementById("c").innerHTML = vars.get("c");
+document.getElementById("d").innerHTML = vars.get("d");
+document.getElementById("e").innerHTML = vars.get("e");
+document.getElementById("f").innerHTML = vars.get("f");
+document.getElementById("g").innerHTML = vars.get("g");
+document.getElementById("h").innerHTML = vars.get("h");
 </script>
 
 <style>
-p {
+.label {
+	text-transform: uppercase;
 	text-align: center;
-	font-family: Verdana; 
-	font-size: 300%;
+	font-family: Sora; 
+	font-size: 100%;
 	font-style: bold;
-	color: grey; 
+	color: grey;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: grey;
  }
+ 
+.table_component {
+	height: 200px;
+    width: 600px;
+}
+
+.table_component table {
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    text-align: center;
+}
 </style>
 
 </body>
