@@ -53,10 +53,6 @@ document.getElementById("h").innerHTML = vars.get("h");
 </script>
 
 <style>
-body {
-	background-color: grey;
-}
-
 .label {
 	font-family: "Paytone One"; 
 	font-size: 300%;
@@ -65,7 +61,10 @@ body {
 	text-align: center;
 	
 	background: black;
-	border-radius: 10px;
+	border-radius: 30px;
+	
+	animation-name: fade;
+	animation-duration: 1s;
  }
 
 .table_component {
@@ -89,6 +88,18 @@ body {
     text-align: center;
 	width: 100%;
 	height: 100%;
+}
+
+@keyframes fade {
+  from {
+	background-color: #00000000;
+	color: #ffffff00;
+  }
+  
+  to {
+	background-color: black;
+	color: white;
+  }
 }
 </style>
 
