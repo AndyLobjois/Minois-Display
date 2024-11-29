@@ -1,44 +1,16 @@
 <!DOCTYPE html>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Sora:wght@100..800&display=swap" rel="stylesheet">
-
 <html>
 <body>
 
-<div class="table_component" role="region" tabindex="0">
-<table>
-    <tbody>
-        <tr>
-            <td></td>
-            <td><p class="label" id="e"></td>
-            <td></td>
-			<td></td>
-			<td></td>
-            <td><p class="label" id="a"></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><p class="label" id="h"></td>
-            <td></td>
-            <td><p class="label" id="f"></td>
-			<td></td>
-			<td><p class="label" id="d"></td>
-            <td></td>
-            <td><p class="label" id="b"></td>
-        </tr>
-		<tr>
-            <td></td>
-            <td><p class="label" id="g"></td>
-			<td></td>
-            <td></td>
-			<td></td>
-            <td><p class="label" id="c"></td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
-</div>
+<div class="a button"><p class="label" id="a"></p></div>
+<div class="b button"><p class="label" id="b"></p></div>
+<div class="c button"><p class="label" id="c"></p></div>
+<div class="d button"><p class="label" id="d"></p></div>
+
+<div class="e button up"><p class="label" id="e"></p></div>
+<div class="f button right"><p class="label" id="f"></p></div>
+<div class="g button down"><p class="label" id="g"></p></div>
+<div class="h button left"><p class="label" id="h"></p></div>
 
 <script>
 const vars = new URLSearchParams(window.location.search);
@@ -50,45 +22,93 @@ document.getElementById("e").innerHTML = vars.get("e");
 document.getElementById("f").innerHTML = vars.get("f");
 document.getElementById("g").innerHTML = vars.get("g");
 document.getElementById("h").innerHTML = vars.get("h");
+
+const root = document.documentElement;
+const currentColor = getComputedStyle(root).getPropertyValue("--button-color");
+root.style.setProperty("--button-color", "#" + vars.get("color"));
 </script>
 
 <style>
+:root {
+	--button-color: #222;
+}
+
+.button {
+	height: 300px;
+	width: 300px;
+	background: var(--button-color);
+	border-radius: 50%;
+	border: 5px solid grey;
+	position: absolute;
+	top: 50%;
+	
+	animation-name: fade;
+	animation-duration: 0.4s;
+}
+
+.up {border-radius: 30px 30px 50% 50%;}
+.right {border-radius: 50% 30px 30px 50%;}
+.down {border-radius: 50% 50% 30px 30px;}
+.left {border-radius: 30px 50% 50% 30px;}
+
+
 .label {
-	font-family: "Paytone One"; 
+	font-family: "Verdana";
+	font-weight: bold;
 	font-size: 300%;
 	color: white;
 	text-transform: uppercase;
 	text-align: center;
+	margin: 0px;
 	
-	background: black;
-	border-radius: 30px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 	
-	animation-name: fade;
-	animation-duration: 0.2s;
+	animation-name: fade-label;
+	animation-duration: 0.4s;
  }
 
-.table_component {
-	margin: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	
-	width: 1480px;
-	height: 640px;
+.a {
+	left: 75%;
+	transform: translate(-150px, -400px);
 }
 
-.table_component td {
-	border: 5px solid #00000000;
+.b {
+	left: 75%;
+	transform: translate(100px, -150px);
 }
 
-.table_component table {
-    table-layout: fixed;
-    border-collapse: collapse;
-    text-align: center;
-	width: 100%;
-	height: 100%;
+.c {
+	left: 75%;
+	transform: translate(-150px, 100px);
 }
+
+.d {
+	left: 75%;
+	transform: translate(-400px, -150px);
+}
+
+.e {
+	left: 25%;
+	transform: translate(-150px, -400px);
+}
+
+.f {
+	left: 25%;
+	transform: translate(100px, -150px);
+}
+
+.g {
+	left: 25%;
+	transform: translate(-150px, 100px);
+}
+
+.h {
+	left: 25%;
+	transform: translate(-400px, -150px);
+}
+
 
 @keyframes fade {
   from {
@@ -97,7 +117,17 @@ document.getElementById("h").innerHTML = vars.get("h");
   }
   
   to {
-	background-color: black;
+	background-color: var(--button-color);
+	color: white;
+  }
+}
+
+@keyframes fade-label {
+  from {
+	color: #ffffff00;
+  }
+  
+  to {
 	color: white;
   }
 }
