@@ -31,14 +31,18 @@ root.style.setProperty("--button-color", "#" + vars.get("color"));
 <style>
 :root {
 	--button-color: #222;
+	--side-left: 38%;
+	--side-right: 62%;
+	--side-center: -50px; /*Half Button Size*/
+	--side-h: -125px; /* REMOVE Center */
+	--side-v: 25px; /* ADD Center */
 }
 
 .button {
-	height: 300px;
-	width: 300px;
+	height: 100px;
+	width: 100px;
 	background: var(--button-color);
 	border-radius: 50%;
-	border: 5px solid grey;
 	position: absolute;
 	top: 50%;
 	
@@ -46,16 +50,16 @@ root.style.setProperty("--button-color", "#" + vars.get("color"));
 	animation-duration: 0.4s;
 }
 
-.up {border-radius: 30px 30px 50% 50%;}
-.right {border-radius: 50% 30px 30px 50%;}
-.down {border-radius: 50% 50% 30px 30px;}
-.left {border-radius: 30px 50% 50% 30px;}
+.up {border-radius: 10% 10% 50% 50%;}
+.right {border-radius: 50% 10% 10% 50%;}
+.down {border-radius: 50% 50% 10% 10%;}
+.left {border-radius: 10% 50% 50% 10%;}
 
 
 .label {
 	font-family: "Verdana";
 	font-weight: bold;
-	font-size: 300%;
+	font-size: 100%;
 	color: white;
 	text-transform: uppercase;
 	text-align: center;
@@ -70,43 +74,43 @@ root.style.setProperty("--button-color", "#" + vars.get("color"));
  }
 
 .a {
-	left: 75%;
-	transform: translate(-150px, -400px);
+	left: var(--side-right);
+	transform: translate(var(--side-center), var(--side-h));
 }
 
 .b {
-	left: 75%;
-	transform: translate(100px, -150px);
+	left: var(--side-right);
+	transform: translate(var(--side-v), var(--side-center));
 }
 
 .c {
-	left: 75%;
-	transform: translate(-150px, 100px);
+	left: var(--side-right);
+	transform: translate(var(--side-center), var(--side-v));
 }
 
 .d {
-	left: 75%;
-	transform: translate(-400px, -150px);
+	left: var(--side-right);
+	transform: translate(var(--side-h), var(--side-center));
 }
 
 .e {
-	left: 25%;
-	transform: translate(-150px, -400px);
+	left: var(--side-left);
+	transform: translate(var(--side-center), var(--side-h));
 }
 
 .f {
-	left: 25%;
-	transform: translate(100px, -150px);
+	left: var(--side-left);
+	transform: translate(var(--side-v), var(--side-center));
 }
 
 .g {
-	left: 25%;
-	transform: translate(-150px, 100px);
+	left: var(--side-left);
+	transform: translate(var(--side-center), var(--side-v));
 }
 
 .h {
-	left: 25%;
-	transform: translate(-400px, -150px);
+	left: var(--side-left);
+	transform: translate(var(--side-h), var(--side-center));
 }
 
 
